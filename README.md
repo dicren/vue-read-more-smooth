@@ -49,11 +49,11 @@ Go to https://dicren.github.io/vue-read-more-smooth/
  |  Property  |  Type  |  Default  |  Description  | 
  |  -  |  :-:  |  :-:  |  -  | 
  |  :lines  | number | `3`  |  Number of lines to show before the read more button. | 
- |  :g-lines | number | `2` |  Shadow's size. If lines is greather than 12, g-lines default value is 4, if lines is grather than 6, g-lines default value is 3
+ |  :g-lines | number | `2` |  Shadow's size. If lines is greater than 12, g-lines default value is 4, if lines is greater than 6, g-lines default value is 3
  |  :max-lines | number | `lines + 1` |  If your text has less than max-lines, the container acts as a normal div.
  |  :text | string | `Read more` |  obvious
  |  :text-less | string | `Read less` |  obvious
- |  :no-less | boolean | `true` |  if is false button disapear after click read more
+ |  :no-less | boolean | `false` |  if true button disappear after click read more
  |  :open-by-default | boolean | `false` |  show all text by default
  
 
