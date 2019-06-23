@@ -1,0 +1,47 @@
+{
+  "name": "vue-read-more-smooth",
+  "main": "./dist/vue-read-more-smooth.common.js",
+  "version": "0.1.2",
+  "author": "Dicren",
+  "license": "MIT",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build --dest docs",
+    "lint": "vue-cli-service lint",
+    "build-bundle": "vue-cli-service build --target lib --name vue-read-more-smooth ./src/ReadMore.vue"
+  },
+  "files": [
+    "dist/*",
+    "src/*",
+    "public/*",
+    "*.json",
+    "*.js",
+    "LICENSE",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DiCrEn/vue-read-more-smooth.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DiCrEn/vue-read-more-smooth/issues"
+  },
+  "keywords": ["vue","vuejs","plugin","read more"],
+  "homepage": "https://dicren.github.io/vue-read-more-smooth/",
+  "dependencies": {
+    "core-js": "^2.6.5",
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.8.0",
+    "@vue/cli-plugin-eslint": "^3.8.0",
+    "@vue/cli-service": "^3.8.0",
+    "@vue/eslint-config-prettier": "^4.0.1",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "sass": "^1.18.0",
+    "sass-loader": "^7.1.0",
+    "vue-template-compiler": "^2.6.10"
+  }
+}
