@@ -1,7 +1,8 @@
 {
   "name": "vue-read-more-smooth",
   "main": "./dist/vue-read-more-smooth.common.js",
-  "version": "0.1.2",
+  "description": "\"Read more\" button with animation and easy usage for vuejs.",
+  "version": "0.1.4",
   "author": "Dicren",
   "license": "MIT",
   "scripts": {
@@ -13,9 +14,7 @@
   "files": [
     "dist/*",
     "src/*",
-    "public/*",
     "*.json",
-    "*.js",
     "LICENSE",
     "README.md"
   ],

@@ -97,6 +97,7 @@ export default {
       }
 
       this.$refs.to.style.setProperty("--lineHeight", lh + "px");
+      this.$refs.ht.style.setProperty("--lineHeight", lh + "px");
 
       if (this.openByDefault) {
         this.$refs.to.style.setProperty(
@@ -122,16 +123,17 @@ export default {
       }
     },
     getLineHeight(element) {
-      let temp = document.createElement(element.nodeName);
+      let temp = document.createElement(element.children[0].nodeName);
+      const cpStyle = getComputedStyle(element.children[0]);
       temp.setAttribute(
         "style",
-        "margin:0px;padding:0px;font-family:" +
-          element.style.fontFamily +
+        "position:absolute;left:-999em;margin:0px;padding:0px;font-family:" +
+          cpStyle.fontFamily +
           ";font-size:" +
-          element.style.fontSize
+          cpStyle.fontSize
       );
       temp.innerHTML = "test";
-      temp = element.parentNode.appendChild(temp);
+      temp = document.body.appendChild(temp);
       const ret = temp.clientHeight;
       temp.parentNode.removeChild(temp);
       return ret;
@@ -187,6 +189,7 @@ export default {
 
 .hide-text {
   --nlines: 6;
+  --lineHeight: 1.5;
   background-image: linear-gradient(
     to bottom,
     rgba(255, 255, 255, 0) 0%,
@@ -194,9 +197,10 @@ export default {
     rgba(255, 255, 255, 1) 100%
   );
   width: 100%;
-  height: calc(var(--nlines) * 1em);
+  height: calc(var(--nlines) * var(--lineHeight));
   position: absolute;
-  transform: translateY(calc(var(--nlines) * -1em));
+  //noinspection CssInvalidFunction
+  transform: translateY(calc(var(--nlines) * -1 * var(--lineHeight)));
 }
 
 .hide-text,
