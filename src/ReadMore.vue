@@ -170,7 +170,7 @@ export default {
   cursor: pointer;
   display: block;
   position: relative;
-  border-top: 0.1em solid #dbdbdb;
+  border-top: 1px solid #dbdbdb;
   height: 0.1em;
   margin: 2em auto;
   width: 95%;
