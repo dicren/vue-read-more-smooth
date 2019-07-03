@@ -25,7 +25,10 @@ yarn add vue-read-more-smooth
 ```
 
 ## Demo & examples
-Go to https://dicren.github.io/vue-read-more-smooth/
+
+![](demo.gif)
+
+Code examples: https://dicren.github.io/vue-read-more-smooth/
 
 ## Usage
 

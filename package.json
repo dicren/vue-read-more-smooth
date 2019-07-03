@@ -2,7 +2,7 @@
   "name": "vue-read-more-smooth",
   "main": "./dist/vue-read-more-smooth.common.js",
   "description": "\"Read more\" button with animation and easy usage for vuejs.",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "author": "Dicren",
   "license": "MIT",
   "scripts": {
@@ -25,22 +25,26 @@
   "bugs": {
     "url": "https://github.com/DiCrEn/vue-read-more-smooth/issues"
   },
-  "keywords": ["vue","vuejs","plugin","read more"],
+  "keywords": [
+    "vue",
+    "vuejs",
+    "plugin",
+    "read more"
+  ],
   "homepage": "https://dicren.github.io/vue-read-more-smooth/",
   "dependencies": {
-    "core-js": "^2.6.5",
     "vue": "^2.6.10"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.8.0",
-    "@vue/cli-plugin-eslint": "^3.8.0",
-    "@vue/cli-service": "^3.8.0",
+    "@vue/cli-plugin-eslint": "^3.9.0",
+    "@vue/cli-service": "^3.9.0",
     "@vue/eslint-config-prettier": "^4.0.1",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "sass": "^1.18.0",
     "sass-loader": "^7.1.0",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.10",
+    "webpack-bundle-analyzer": "^3.3.2"
   }
 }
