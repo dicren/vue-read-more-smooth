@@ -64,7 +64,7 @@ Code examples: https://dicren.github.io/vue-read-more-smooth/
 
 ## Changelog
 
-### 0.1.6 - 2019-08-09
+### 0.1.7 - 2019-08-09
 #### Added
 - :open property
 - :no-button property
