@@ -7,9 +7,9 @@
       <slot> </slot>
     </div>
 
-    <div ref="ht" class="hide-text"></div>
+    <div ref="ht" class="hide-text" v-if="!noShadow"></div>
 
-    <div @click="toggle" class="button-read-more">
+    <div @click="toggle" class="button-read-more" v-if="!noButton">
       <slot name="more" v-bind:open="expanded"
         ><div class="read-more-button" :class="{ 'show-less': !noLess }">
           <span>{{ expanded ? textLess : text }}</span>
@@ -50,6 +50,18 @@ export default {
     openByDefault: {
       type: Boolean,
       default: false
+    },
+    open: {
+      type: Boolean,
+      default: null
+    },
+    noButton: {
+      type: Boolean,
+      default: false
+    },
+    noShadow: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -60,11 +72,22 @@ export default {
       localMaxLines: 1
     };
   },
+  watch: {
+    open(v) {
+      if (v !== this.expanded) {
+        this.toggle(!v);
+      }
+    }
+  },
   created() {
     if (this.lines && !this.maxLines) {
       this.localMaxLines = this.lines + 1;
     } else {
       this.localMaxLines = this.maxLines - 1;
+    }
+
+    if (this.open === true) {
+      this.expanded = true;
     }
   },
   mounted() {
@@ -82,11 +105,12 @@ export default {
       gLines = 3;
     }
 
-    this.$refs.ht.style.setProperty("--nlines", gLines);
+    if (this.$refs.ht) {
+      this.$refs.ht.style.setProperty("--nlines", gLines);
+    }
 
-    if (this.openByDefault) {
+    if (this.open === true) {
       this.$refs.to.style.setProperty("max-height", "100%");
-      this.expanded = true;
     }
 
     setTimeout(() => {
@@ -97,9 +121,11 @@ export default {
       }
 
       this.$refs.to.style.setProperty("--lineHeight", lh + "px");
-      this.$refs.ht.style.setProperty("--lineHeight", lh + "px");
+      if (this.$refs.ht) {
+        this.$refs.ht.style.setProperty("--lineHeight", lh + "px");
+      }
 
-      if (this.openByDefault) {
+      if (this.open === true) {
         this.$refs.to.style.setProperty(
           "max-height",
           this.$refs.to.scrollHeight + "px"
@@ -108,14 +134,18 @@ export default {
     });
   },
   methods: {
-    toggle() {
-      if (this.expanded) {
+    toggle(val) {
+      const valExp = typeof val === "boolean" ? val : this.expanded;
+
+      if (valExp) {
         if (!this.noLess) {
           this.$refs.to.style.removeProperty("max-height");
           this.expanded = false;
+          this.$emit("update:open", false);
         }
       } else {
         this.expanded = true;
+        this.$emit("update:open", true);
         this.$refs.to.style.setProperty(
           "max-height",
           this.$refs.to.scrollHeight + "px"

@@ -72,7 +72,7 @@
       <div class="example">
         <h4>Default expanded</h4>
 
-        <VueReadMoreSmooth open-by-default>
+        <VueReadMoreSmooth :open="true">
           <p>
             {{ lorem }}
           </p>
@@ -81,7 +81,7 @@
         <h5>code</h5>
 
         <pre><code v-pre class="language-html">
-&lt;VueReadMoreSmooth open-by-default>
+&lt;VueReadMoreSmooth :open="true">
   &lt;p>{{ lorem }}&lt;/p>
 &lt;/VueReadMoreSmooth>
         </code></pre>
@@ -194,6 +194,29 @@
 &lt;/VueReadMoreSmooth>
         </code></pre>
       </div>
+
+      <div class="example">
+        <h4>
+          Programmatically open. No button, no shadow.
+          <span class="example-click-title" @click="exampleOpen = !exampleOpen"
+            >Click here to {{ exampleOpen ? "close" : "open" }}</span
+          >
+        </h4>
+
+        <VueReadMoreSmooth :open.sync="exampleOpen" no-button no-shadow>
+          <p>
+            {{ lorem }}
+          </p>
+        </VueReadMoreSmooth>
+
+        <h5>code</h5>
+
+        <pre><code v-pre class="language-html">
+&lt;VueReadMoreSmooth :open.sync="exampleOpen" no-button no-shadow>
+  &lt;p>{{ lorem }}&lt;/p>
+&lt;/VueReadMoreSmooth>
+        </code></pre>
+      </div>
     </div>
   </div>
 </template>
@@ -206,7 +229,8 @@ export default {
   data() {
     return {
       lorem:
-        "Lorem fistrum adipisicing apetecan elit diodeno torpedo al ataquerl incididunt quietooor fistro. Cillum consequat ese que llega aliqua esse veniam de la pradera. Aliquip aliquip qué dise usteer al ataquerl hasta luego Lucas. Benemeritaar ese hombree condemor ullamco veniam ese hombree fistro no puedor quietooor dolor apetecan. Pupita te voy a borrar el cerito diodenoo te va a hasé pupitaa fistro tempor duis caballo blanco caballo negroorl. Hasta luego Lucas no te digo trigo por no llamarte Rodrigor a wan commodo enim et et nisi nisi. Eiusmod voluptate nostrud exercitation ullamco. Magna incididunt la caidita pupita elit sit amet tiene musho peligro."
+        "Lorem fistrum adipisicing apetecan elit diodeno torpedo al ataquerl incididunt quietooor fistro. Cillum consequat ese que llega aliqua esse veniam de la pradera. Aliquip aliquip qué dise usteer al ataquerl hasta luego Lucas. Benemeritaar ese hombree condemor ullamco veniam ese hombree fistro no puedor quietooor dolor apetecan. Pupita te voy a borrar el cerito diodenoo te va a hasé pupitaa fistro tempor duis caballo blanco caballo negroorl. Hasta luego Lucas no te digo trigo por no llamarte Rodrigor a wan commodo enim et et nisi nisi. Eiusmod voluptate nostrud exercitation ullamco. Magna incididunt la caidita pupita elit sit amet tiene musho peligro.",
+      exampleOpen: false
     };
   }
 };
@@ -256,5 +280,10 @@ p {
   vertical-align: top;
   background-color: #8fa92a;
   color: #fff;
+}
+
+.example-click-title {
+  font-size: 0.75rem;
+  cursor: pointer;
 }
 </style>

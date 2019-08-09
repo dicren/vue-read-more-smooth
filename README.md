@@ -54,8 +54,20 @@ Go to https://dicren.github.io/vue-read-more-smooth/
  |  :text | string | `Read more` |  obvious
  |  :text-less | string | `Read less` |  obvious
  |  :no-less | boolean | `false` |  if true button disappear after click read more
- |  :open-by-default | boolean | `false` |  show all text by default
+ |  :open | boolean | `false` |  open and close programmatically. .sync is available.
+ |  :no-button | boolean | `false` |  Hide the button. To use in combination with :open
+ |  :no-shadow | boolean | `false` |  Hide the shadow.
  
+
+## Changelog
+
+### 0.1.6 - 2019-08-09
+#### Added
+- :open property
+- :no-button property
+- :no-shadow property
+#### Removed
+- :open-by-default property, replaced by :open
 
 ## License
 
